@@ -32,4 +32,4 @@ This file runs nueral network of multiclass logistic regression classifier. **p*
 # ex3.pdf 
 This PDF file has the detail description of the homework.
 
-
+**n** is number of features, **m** is number of training examples, and **k** is number of classes.
