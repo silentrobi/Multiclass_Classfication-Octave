@@ -1,4 +1,4 @@
-# Multiclass_Classfication-Octave
+# Multiclass Classfication-Octave
 # Univariate And Multivariate Linear Regression-Octave
 This project is part of the **Machine Learning** course offered by **Andrew Ng**.
 
