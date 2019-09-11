@@ -7,37 +7,26 @@ The project has following classes and script files.
 
 # IrCostFunction.m -- *Script File*
 
-**IrCostFunction.m** file has `lrCostFunction()` method, that is used to find cost **J** and **gradient** for multivariate logistic regression.
-The return values of this method are **J**  and **gradient** `(n+1) x 1`. **J_history** keeps **J** value in each iteration. The method looks like in octave `function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)`, 
-where **X** is `m x (n+1)` matrix, **y** is `m x 1` matrix, **alpha** is learning rate, and num_iters defines how many times to iterate.
+**IrCostFunction.m** file has `lrCostFunction()` method, that is used to find cost **J** and **gradient** for multivariate logistic regression. The return values of this method are **J**  and **gradient** `(n+1) x 1`. The method looks like in octave `function [J, grad] = lrCostFunction(theta, X, y, lambda)`, where **X** is `m x (n+1)` matrix, **y** is `m x 1` matrix, and **lambda** is regularization parameter.
 
-# gradientDescentMulti.m -- *Script File*
-**gradietDescentMulti.m** file has `gradientDescentMulti()` method, that is used to find optimized **theta** for univariate linear regression.
-The return values of this method are **J_history**  and optimized **theta**. **J_history** keeps **J** value in each iteration. The method looks like in octave `function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)`, 
-where **X** is `m x (n+1)` matrix, **y** is `m x 1` matrix, **alpha** is learning rate, and num_iters defines how many times to iterate. **gradietDescentmulti.m** file has the same structure as  **gradietDescent.m** file. Both has vectorized implementation of gradient descent. vectorized implementation doesn't use loop for matrix related computation.
+# oneVsAll.m -- *Script File*
+**oneVsAll.m** file has `oneVsAll()` method, that is used to find optimized **k** number of **thetas**, where **k** means the number of classes, and k >=3 for multiclass classification. The method uses advanced optimization algorithm `fmincg` to find the **thetas*. 
+The return values of this method are **all thetas** `k x (n+1)` for all classes. The method looks like in octave `function [all_theta] = oneVsAll(X, y, num_labels, lambda)`, where **X** is `m x n` matrix, **y** is `m x 1` matrix, **num_labels** means total classes, and **lambda** is regularization parameter. 
 
-# computeCost.m -- *Script File*
-**computeCost.m** file has `computeCost()` method, that is used to compute cost **J** for univariate linear regression. The return value of this method is **J**. The method looks like in octave `function J = computeCost(X, y, theta)`, 
-where **X** is `m x (n+1)` matrix, **y** is `m x 1` matrix, **theta** is `(n+1) x 1` matrix. It uses vectorize implementation of cost **J**.
+# predictOneVsAll.m -- *Script File*
+**predictOneVsAll.m** file has `predictOneVsAll()` method, that is used to find **p**, where **p** `(m x1)` is a vector of predicted classes for training data. The method looks like in octave `function p = predictOneVsAll(all_theta, X) `, where **X** is `m x n` matrix, **all_theta** is `k x (n+1)` matrix.
 
-# computeCostMulti.m -- *Script File*
-**computeCostMulti.m** file has `computeCostMulti()` method, that is used to compute cost **J** for univariate linear regression. The return value of this method is **J**. The method looks like in octave `function J = computeCost(X, y, theta)`, 
-where **X** is `m x (n+1)` matrix, **y** is `m x 1` matrix, **theta** is `(n+1) x 1` matrix. It uses vectorize implementation of cost **J**.
-# normalEqn.m -- *Script File*
-**normalEqn.m** file has `normalEqn(X,y)` method, which computes the **theta** using matrix computation, instead of gradient descent algorithm. The method looks like in octave `function [theta] = normalEqn(X, y)`, where **X** is `m x (n+1)` matrix and **y** is `m x 1` matrix.   
-**NOTE:** In the normal equation computation, `m` should be greater than `n` because **X** is non-invertible if `m < n`, and may be non-invertible if `m = n`. We can solve non-invertable issue by using regularization term. See **Regularized Linear Regression** video of **Machine Learning** course by **Andrew Ng**.
-# plotData.m -- *Script File*
-**plotData.m** file has plotData(X,y) method, that is used to visualize **X** `(m x 1)`, **y** `(m x 1)`, and univariate regression line. 
-# ex1.m -- *Script File*
-This is the file that should be run for univariate linear regression.This file loads ex1data1.txt, get univariate linear regression model, predict price and so on.
-# ex1_multi.m -- *Script File*
-This is the file that should be run for multivariate linear regression.This file loads ex2data2.txt, get multivariate linear regression model, predict price and so on.
+# sigmoid.m -- *Script File*
+**sigmoid.m** file has `sigmoid()` method, that is used to compute sigmoid of input vector/matrix.
 
-# ex1.pdf 
+# displayData.m -- *Script File*
+**displayData.m** file is used to display image data from training set.
+# ex3.m -- *Script File*
+This file runs  multiclass logistic regression classifier. This file loads `ex3data1.mat`, gets multiclass logistic regression model, and predict the class of an input data. `ex3data1.mat` file has image data.
+# ex3_nn.m -- *Script File*
+This file runs nueral network of multiclass logistic regression classifier. **p** vector is calculated using neural network **forward propogation** algorithm. This file loads `ex3data1.mat` and `ex3weight.mat`, gets neural network of multiclass logistic regression model. `ex3weight.mat`has optimized **Thetas** that is found by **backward propogation algorithm**. This algorithm is part of homework 4. `ex3data1.mat` file has image data.
+
+# ex3.pdf 
 This PDF file has the detail description of the homework.
-
-# NOTE 
-Cost **J** and **gradient** of linear regression can be regularized to prevent overfitting and underfitting problem. Regularized cost **J** and **gradient** can be found on course lecture of week 3.
-
 
 
