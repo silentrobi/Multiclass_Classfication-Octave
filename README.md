@@ -3,7 +3,7 @@
 This project is part of the **Machine Learning** course offered by **Andrew Ng**.
 
 # Project documantation
-The project has following classes and script files.
+The project has following script files.
 
 # IrCostFunction.m -- *Script File*
 
